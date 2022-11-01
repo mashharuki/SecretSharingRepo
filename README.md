@@ -44,12 +44,14 @@ npx tsc --init
 ```zsh
  PASS  test/All.test.ts
   test code for secret sharing
-    ✓ recover (73 ms)
+    ✓ create shares (7 ms)
+    ✓ recover (64 ms)
 
 Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Tests:       2 passed, 2 total
 Snapshots:   0 total
-Time:        4.106 s
+Time:        3.602 s, estimated 4 s
+Ran all test suites.
 ```
 
 #### メモ 
@@ -61,3 +63,4 @@ Time:        4.106 s
 3. [【npm】shamirs-secret-sharing ](https://www.npmjs.com/package/shamirs-secret-sharing)
 4. [TypeScript + Node.js プロジェクトのはじめかた2020](https://qiita.com/notakaos/items/3bbd2293e2ff286d9f49)
 5. [Ethers Docs](https://docs.ethers.io/v5/)
+6. [TypeScriptのユニットテスト環境を構築してみた](https://dev.classmethod.jp/articles/ts-unittest-setting/)

@@ -13,9 +13,12 @@ import {
 const ADDRESS = "0xfC12b50bD2D04d3754BfC1cFB6c303fb9EAcA118";
 
 describe('test code for secret sharing', () => {
-    test('recover', () => {
+    test('create shares', () => {
         // crateshares
         createShares();
+    });
+
+    test('recover', () => {
         // get address
         var address = recover();
         // check
