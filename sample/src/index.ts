@@ -22,7 +22,7 @@ export function createShares() {
 /**
  * recovered private key
  */
- export function recover(): string {
+export function recover(): string {
 
   var shareDatas = [];
 
@@ -50,7 +50,7 @@ export function createShares() {
  * @parma recovered data
  * @return wallet address
  */
- export function createWallet(recovered: string): string {
+export function createWallet(recovered: string): string {
   // create instance from private
   let wallet = new ethers.Wallet(recovered);
   // get wallet address
