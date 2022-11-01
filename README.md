@@ -11,6 +11,16 @@
 npm run start
 ```
 
+### ユニットテスト用モジュールのインストール
+
+```zsh
+npm install @types/jest jest ts-jest 
+```
+
+```zsh
+npx tsc --init
+```
+
 ### 秘密鍵からSignerオブジェクトを生成するサンプルコード
 
 ```ts
@@ -27,6 +37,19 @@ npm run start
  let address = wallet.address
  console.log("address:", address)
  // => 0xfC12b50bD2D04d3754BfC1cFB6c303fb9EAcA118
+```
+
+### テスト結果
+
+```zsh
+ PASS  test/All.test.ts
+  test code for secret sharing
+    ✓ recover (73 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        4.106 s
 ```
 
 #### メモ 

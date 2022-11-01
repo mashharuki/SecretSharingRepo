@@ -3,9 +3,10 @@ const fs = require('fs');
 const ethers = require('ethers');
 
 /**
- * test code
+ * create shares
+ * @return shares Array of Buffer
  */
-function test(): string {
+export function createShares() {
   // get Secret Key from file
   const secret = fs.readFileSync('./sample/data/privatekey.txt')
   // create shares
@@ -16,6 +17,12 @@ function test(): string {
   for (var i=0; i < shares.length; i++ ) {
     fs.writeFileSync(`./sample/data/shares${i+1}.txt`, shares[i], "utf-8");
   }
+}
+
+/**
+ * recovered private key
+ */
+ export function recover(): string {
 
   var shareDatas = [];
 
@@ -27,18 +34,42 @@ function test(): string {
   shareDatas.push(share1);
   shareDatas.push(share2);
   shareDatas.push(share3);
-
   console.log("shareDatas:", shareDatas)
 
   // recovered by shares
   const recovered = sss.combine(shareDatas.slice(1, 3));
-  console.log("recovered:", recovered)
+  console.log("recovered:", recovered);
 
+  // get wallet address
+  var address = createWallet(recovered.toString());
+  return address;
+}
+
+/**
+ * create Wallet Instace
+ * @parma recovered data
+ * @return wallet address
+ */
+ export function createWallet(recovered: string): string {
   // create instance from private
-  let wallet = new ethers.Wallet(recovered.toString());
+  let wallet = new ethers.Wallet(recovered);
   // get wallet address
   let address = wallet.address
   return address;
 }
+
+
+/**
+ * test code
+ */
+function main(): string {
   
-console.log(test());
+  // create shares
+  createShares();
+  // recover data
+  var address = recover();
+
+  return address;
+}
+  
+console.log(main());
